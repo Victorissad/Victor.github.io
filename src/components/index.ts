@@ -14,6 +14,11 @@ import Works from "./sections/Works";
 import Feedbacks from "./sections/Feedbacks";
 import Contact from "./sections/Contact";
 import CanvasLoader from "./layout/Loader";
+// E4 Components
+import Competences from "./sections/Competences";
+import CV from "./sections/CV";
+import VeilleTechnologique from "./sections/VeilleTechnologique";
+import EpreuveE4 from "./sections/EpreuveE4";
 
 export {
   Hero,
@@ -29,4 +34,9 @@ export {
   BallCanvas,
   ComputersCanvas,
   StarsCanvas,
+  // E4 exports
+  Competences,
+  CV,
+  VeilleTechnologique,
+  EpreuveE4,
 };

@@ -6,13 +6,13 @@ import {
 
 import "react-vertical-timeline-component/style.min.css";
 
-import { experiences } from "../../constants";
+import { parcours } from "../../constants";
 import { SectionWrapper } from "../../hoc";
 import { Header } from "../atoms/Header";
-import { TExperience } from "../../types";
+import { TParcours } from "../../types";
 import { config } from "../../constants/config";
 
-const ExperienceCard: React.FC<TExperience> = (experience) => {
+const ExperienceCard: React.FC<TParcours> = (parcour) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -20,32 +20,37 @@ const ExperienceCard: React.FC<TExperience> = (experience) => {
         color: "#fff",
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
-      date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      date={parcour.date}
+      iconStyle={{ background: parcour.iconBg }}
       icon={
         <div className="flex h-full w-full items-center justify-center">
           <img
-            src={experience.icon}
-            alt={experience.companyName}
+            src={parcour.icon}
+            alt={parcour.institution}
             className="h-[60%] w-[60%] object-contain"
           />
         </div>
       }
     >
       <div>
-        <h3 className="text-[24px] font-bold text-white">{experience.title}</h3>
+        <h3 className="text-[24px] font-bold text-white">{parcour.title}</h3>
         <p
           className="text-secondary text-[16px] font-semibold"
           style={{ margin: 0 }}
         >
-          {experience.companyName}
+          {parcour.institution}
         </p>
+        {parcour.location && (
+          <p className="text-secondary text-[14px] italic" style={{ margin: 0 }}>
+            {parcour.location}
+          </p>
+        )}
       </div>
 
       <ul className="ml-5 mt-5 list-disc space-y-2">
-        {experience.points.map((point, index) => (
+        {parcour.description.map((point, index) => (
           <li
-            key={`experience-point-${index}`}
+            key={`parcour-point-${index}`}
             className="text-white-100 pl-1 text-[14px] tracking-wider"
           >
             {point}
@@ -59,12 +64,12 @@ const ExperienceCard: React.FC<TExperience> = (experience) => {
 const Experience = () => {
   return (
     <>
-      <Header useMotion={true} {...config.sections.experience} />
+      <Header useMotion={true} {...config.sections.parcours} />
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard key={index} {...experience} />
+          {parcours.map((item, index) => (
+            <ExperienceCard key={index} {...item} />
           ))}
         </VerticalTimeline>
       </div>
@@ -72,4 +77,4 @@ const Experience = () => {
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default SectionWrapper(Experience, "parcours");

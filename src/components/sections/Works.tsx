@@ -66,14 +66,14 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
 const Works = () => {
   return (
     <>
-      <Header useMotion={true} {...config.sections.works} />
+      <Header useMotion={true} {...config.sections.realisations} />
 
       <div className="flex w-full">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="text-secondary mt-3 max-w-3xl text-[17px] leading-[30px]"
         >
-          {config.sections.works.content}
+          {config.sections.realisations.content}
         </motion.p>
       </div>
 
@@ -86,4 +86,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "realisations");

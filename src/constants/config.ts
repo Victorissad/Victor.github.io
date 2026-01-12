@@ -39,6 +39,7 @@ type TConfig = {
     veille: Required<TSection>;
     epreuveE4: Required<TSection>;
     cv: TSection;
+    feedbacks: TSection;
   };
 };
 
@@ -114,6 +115,10 @@ export const config: TConfig = {
     cv: {
       p: "Mon CV",
       h2: "Curriculum Vitae",
+    },
+    feedbacks: {
+      p: "Témoignages",
+      h2: "Attestations",
     },
   },
 };
